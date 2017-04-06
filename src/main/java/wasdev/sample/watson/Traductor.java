@@ -13,7 +13,7 @@ public class Traductor
 	{
 		LanguageTranslator service = new LanguageTranslator();
 		service.setUsernameAndPassword("USER", "PASSWORD");
-		service.setEndPoint("https://gateway.watsonplatform.net/languagetranslator/api");
+		service.setEndPoint("https://gateway.watsonplatform.net/language-translator/api");
 		TranslationResult translationResult = service.translate(palabra, Language.SPANISH, Language.ENGLISH).execute();
 		String traduccionJSON = translationResult.toString();
 		System.out.println(traduccionJSON+"\n-------\n");
