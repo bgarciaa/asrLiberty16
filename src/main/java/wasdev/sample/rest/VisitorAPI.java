@@ -31,6 +31,7 @@ import com.google.gson.Gson;
 import wasdev.sample.Visitor;
 import wasdev.sample.store.VisitorStore;
 import wasdev.sample.store.VisitorStoreFactory;
+import wasdev.sample.watson.Traductor;
 
 @ApplicationPath("api")
 @Path("/visitors")
@@ -98,11 +99,14 @@ public class VisitorAPI extends Application {
     @Produces("application/text")
     @Consumes("application/json")
     public String newToDo(Visitor visitor) {
+    	String original = visitor.getName();
+    	String nuevo = Traductor.translate(original);
+    	visitor.setName(nuevo);
       if(store == null) {
-    	  return String.format("Hola %s!", visitor.getName());
+    	  return String.format("No escribiste nada: %s!", visitor.getName());
       }
       store.persist(visitor);
-      return String.format("Hola %s! Te he agregado a la base de datos.", visitor.getName());
+      return String.format("Escribiste %s pero se ha agregado %s a la base de datos.", original, visitor.getName());
 
     }
 
