@@ -12,11 +12,10 @@ public class Traductor
 	public static String translate(String palabra)
 	{
 		LanguageTranslator service = new LanguageTranslator();
-		service.setUsernameAndPassword("b5640695-36d5-4de0-8f3c-4937870dc4ea", "k57hGSbIvVpU");
+		service.setUsernameAndPassword("f991bfb5-fc60-4f6e-80c3-c018bfc82779", "VAhhCnN7Lxn0");
 		service.setEndPoint("https://gateway.watsonplatform.net/language-translator/api");
 		TranslationResult translationResult = service.translate(palabra, Language.SPANISH, Language.ENGLISH).execute();
 		String traduccionJSON = translationResult.toString();
-		System.out.println(traduccionJSON+"\n-------\n");
 		JsonParser parser = new JsonParser();
 		JsonObject rootObj = parser.parse(traduccionJSON).getAsJsonObject();
 		String wordCount = rootObj.get("word_count").getAsString();

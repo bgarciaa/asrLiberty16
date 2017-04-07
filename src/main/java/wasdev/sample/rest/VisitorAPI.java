@@ -101,6 +101,7 @@ public class VisitorAPI extends Application {
     public String newToDo(Visitor visitor) {
     	String original = visitor.getName();
     	String nuevo = Traductor.translate(original);
+    	
     	visitor.setName(nuevo);
       if(store == null) {
     	  return String.format("No escribiste nada: %s!", visitor.getName());
