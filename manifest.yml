@@ -1,6 +1,6 @@
 ---
 applications:
- - name: asrLiberty16 
+ - name: asrLiberty16
    random-route: true
    path: target/GetStartedJava.war
    memory: 512M
